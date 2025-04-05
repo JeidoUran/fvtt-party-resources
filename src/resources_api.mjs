@@ -84,7 +84,7 @@ export default class ResourcesApi {
     game.settings.register(
       'fvtt-party-resources',
       name,
-      mergeObject(properties, options || {})
+      foundry.utils.mergeObject(properties, options || {})
     )
   }
 
@@ -151,7 +151,10 @@ export default class ResourcesApi {
         is_gm: game.user.isGM,
         allowed_to_modify_settings: game.permissions.SETTINGS_MODIFY.includes(1),
         system_type: this.get(resource.concat('_system_type')),
-        system_name: this.get(resource.concat('_system_name'))
+        system_name: this.get(resource.concat('_system_name')),
+        player_gold: ActorDnd5eResources.convert_player_gold(),
+        coffre_gold: ActorDnd5eResources.convert_coffre_gold(),
+        total_gold: ActorDnd5eResources.convert_dnd5e_currencies()
       })
     })
 

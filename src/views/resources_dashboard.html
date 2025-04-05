@@ -29,12 +29,20 @@
               <img src="{{ icon }}" alt="{{ name }}" title="{{ name }}" />
 
               <div class="value">
-                {{ value }}{{#if max_value}}/{{ max_value }}{{/if}}
+                {{#if (eq r.system_type 'dnd_fifth_gold')}}
+                  {{ value.player_gold }} / {{ value.coffre_gold }}
+                {{else}}
+                  {{ value }}{{#if max_value}}/{{ max_value }}{{/if}}
+                {{/if}}
               </div>
             </div>
           {{else}}
             <div class="value">
-              {{ value }} {{#if max_value}} / {{ max_value }}{{/if}}
+              {{#if (eq r.system_type 'dnd_fifth_gold')}}
+                {{ value.player_gold }} / {{ value.coffre_gold }}
+              {{else}}
+                {{ value }} {{#if max_value}} / {{ max_value }}{{/if}}
+              {{/if}}
             </div>
 
             <div class="name">
