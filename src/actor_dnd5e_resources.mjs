@@ -68,7 +68,7 @@ export default class ActorDnd5eResources {
   }
 
   static player_characters() {
-    return game.actors.filter((actor) => actor.type === 'character' && ['Elsa Horkheimer', 'Eris', 'Féril Waffenhalter', 'Oktar', 'Kay', 'Ithil'].includes(actor.name))
+    return game.actors.filter((actor) => actor.type === 'character' && ['Elsa Horkheimer', 'Féril Waffenhalter', 'Oktar', 'Kay', 'Ithil'].includes(actor.name))
   }
 
   static coffre() {
