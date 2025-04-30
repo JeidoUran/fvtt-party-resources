@@ -34,5 +34,70 @@
       "name": "English",
       "path": "languages/en.json"
     },
-    "socket": true
+    {
+      "lang": "cn",
+      "name": "中文",
+      "path": "languages/cn.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "languages/de.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "languages/fr.json"
+    },
+    {
+      "lang": "ja",
+      "name": "日本語",
+      "path": "languages/ja.json"
+    },
+    {
+      "lang": "nl",
+      "name": "Nederlands",
+      "path": "languages/nl.json"
+    },
+    {
+      "lang": "pl",
+      "name": "polski",
+      "path": "languages/pl.json"
+    },
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "languages/ru.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "languages/es.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português",
+      "path": "languages/pt.json"
+    },
+    {
+      "lang": "cs",
+      "name": "Čeština",
+      "path": "languages/cs.json"
+    }
+  ],
+  "esmodules": [
+    "./src/init.mjs"
+  ],
+  "styles": [
+    "./styles/css/init.css"
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "settings-extender",
+        "type": "module"
+      }
+    ]
+  },
+  "socket": true
 }
