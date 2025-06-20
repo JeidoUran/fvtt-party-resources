@@ -7,24 +7,38 @@ export default class ResourcesStatusBar {
       ...window.pr.api.resources(),
       ...{
         is_gm: game.user.isGM,
-        status_bar: ModuleSettings.get('toggle_status_bar')
+        status_bar: ModuleSettings.get('toggle_status_bar'),
+        status_bar_full_width: ModuleSettings.get('toggle_status_bar_full_width'),
+        status_bar_classes: this.classes()
       }
     }
+  }
+
+  static classes() {
+    return [
+      (ModuleSettings.get('status_bar_align') ? ModuleSettings.get('status_bar_align') : 'align-center'),
+      (ModuleSettings.get('toggle_status_bar_full_width') ? 'full-width' : ''),
+    ].join(' ')
   }
 
   static async render() {
     const data = this.getData()
 
     const template = 'modules/fvtt-party-resources/src/views/status_bar.html'
-    const status_bar = await renderTemplate(template, data)
+    const status_bar = await foundry.applications.handlebars.renderTemplate(template, data)
 
     $('#fvtt-party-resources-status-bar').remove()
 
     if(ModuleSettings.get('status_bar_location') == 'on_top') {
+      $('#chat-notifications').css('margin-bottom', '0')
       $('header#ui-top').prepend(status_bar)
     }
 
     if(ModuleSettings.get('status_bar_location') == 'at_bottom') {
+      // Having the actors (or similar) directory listing open, will move the
+      // message textarea to the left, right over the status bar. This moves
+      // the notifications 30px upwards to prevent that.
+      $('#chat-notifications').css('margin-bottom', '30px')
       $('footer#ui-bottom').append(status_bar)
     }
 

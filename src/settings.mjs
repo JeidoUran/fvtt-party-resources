@@ -27,8 +27,8 @@ export default class ModuleSettings {
       hint: game.i18n.localize('FvttPartyResources.GMSettingsForm.ShowActorsButtonForPlayersHint'),
       default: true,
       type: Boolean,
-      onChange: value => ActorDirectory.collection.render('actors')
-    });
+      onChange: value => ui.actors.render()
+    })
 
     this.add('icon_images_orientation', {
       name: game.i18n.localize('FvttPartyResources.GMSettingsForm.IconImagesOrientation'),
@@ -41,7 +41,7 @@ export default class ModuleSettings {
         below: game.i18n.localize('FvttPartyResources.GMSettingsForm.IconImagesOrientationBelow')
       },
       onChange: value => window.pr.dashboard.redraw()
-    });
+    })
 
     this.add('toggle_status_bar', {
       name: game.i18n.localize('FvttPartyResources.GMSettingsForm.ShowStatusBar'),
@@ -49,7 +49,7 @@ export default class ModuleSettings {
       default: true,
       type: Boolean,
       onChange: value => window.pr.status_bar.render()
-    });
+    })
 
     this.add('status_bar_location', {
       name: game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarLocation'),
@@ -62,9 +62,29 @@ export default class ModuleSettings {
         at_bottom: game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarLocationAtBottom')
       },
       onChange: value => window.pr.status_bar.render()
-    });
+    })
 
-    // TODO: status_bar_size
+    this.add('toggle_status_bar_full_width', {
+      name: game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarFullWidth'),
+      default: false,
+      type: Boolean,
+      onChange: value => window.pr.status_bar.render()
+    })
+
+    this.add('status_bar_align', {
+      name: game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarAlign'),
+      hint: game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarAlignHint'),
+      default: 'center',
+      disabled: true,
+      type: String,
+      isSelect: true,
+      choices: {
+        'align-center': game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarAlignCenter'),
+        'align-left': game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarAlignLeft'),
+        'align-right': game.i18n.localize('FvttPartyResources.GMSettingsForm.StatusBarAlignRight')
+      },
+      onChange: value => window.pr.status_bar.render()
+    })
 
   }
 }

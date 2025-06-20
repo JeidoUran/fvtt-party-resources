@@ -1,7 +1,13 @@
 {
+  "name": "fvtt-party-resources",
+  "version": "1.8.3",
   "scripts": {
-    "build": "sass styles/css/:styles/scss/ --source-map styles/maps",
-    "build:watch": "yarn build --watch"
+    "build": "sass styles/scss/init.scss:styles/css/init.css",
+    "build:watch": "yarn build --watch",
+    "deploy": "yarn build && [ -f ./bin/copy-to-module ] && ./bin/copy-to-module"
+  },
+  "engines": {
+    "yarn": ">= 1.22.0"
   },
   "dependencies": {
     "sass": "^1.87.0"
