@@ -353,7 +353,7 @@
 }
 
 .party-resources-custom-ui {
-  border-color: var(--toggle-border-color);
+  border-color: #63b0c4;
   padding-right: 1.5rem;
   width: 100%;
   max-width: 20vw;
