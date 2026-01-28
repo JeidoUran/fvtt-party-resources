@@ -69,19 +69,20 @@ export default class ActorDnd5eResources {
   static player_characters() {
     return game.actors.filter(
       (actor) =>
-        actor.type === "character" &&
+        (actor.type === "character" ||  actor.type === "group") &&
         [
           "Elsa Horkheimer",
           "Féril Waffenhalter",
           "Oktar",
           "Kay",
           "Ithil",
+          "Les Égarés"
         ].includes(actor.name)
     );
   }
 
   static coffre() {
-    return game.actors.find((actor) => actor.name === "Coffre des Égarés");
+    return game.actors.find((actor) => actor.name === "Bastion des Égarés");
   }
 
   static player_items(names) {
